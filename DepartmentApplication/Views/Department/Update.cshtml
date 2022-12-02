@@ -1,0 +1,29 @@
+﻿@model DepartmentUpdateVM
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="container">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3>Update Department</h3>
+                <form class="forms-sample" method="post" asp-action="Update">
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input class="form-control" asp-for="Name">
+                        <span class="text-danger" asp-validation-for="Name"></span>
+
+                        <label asp-for="Address"></label>
+                        <input class="form-control" asp-for="Address">
+                        <span class="text-danger" asp-validation-for="Address"></span>
+
+                    </div>
+                    <button type="submit" class="btn btn-outline-success me-2">Submit</button>
+                    <a class="btn btn-outline-warning" style="text-decoration:none" asp-action="Index">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

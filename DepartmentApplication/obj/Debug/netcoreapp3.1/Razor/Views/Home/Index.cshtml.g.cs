@@ -19,8 +19,29 @@ using DepartmentApplication;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\ASUS\Desktop\DepartmentApplication\DepartmentApplication\Views\_ViewImports.cshtml"
+using DepartmentApplication.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\ASUS\Desktop\DepartmentApplication\DepartmentApplication\Views\_ViewImports.cshtml"
+using DepartmentApplication.ViewModels.DepartmentVM;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\ASUS\Desktop\DepartmentApplication\DepartmentApplication\Views\_ViewImports.cshtml"
+using DepartmentApplication.ViewModels.EmployeeVM;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"83872c409543ed4b61aab2914e2bdaf7d37b1145", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ab801cf080484ffb9969b09e1c1b67b2e784062b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"55bee92f05bb3e57b8a17e00a9f8162824e67167", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998
