@@ -11,9 +11,10 @@ namespace DepartmentApplication.Services.Interfaces
     {
         Task<List<Employee>> GetAll();
         Task Create(EmployeeCreateVM employeeCreateVM);
-        Task Update();
+        Task Update(EmployeeUpdateVM employeeUpdateVM);
         Task Delete(int id);
         Task<Employee> GetById(int id);
+        Task<EmployeeGetVM> Details(int id);
 
     }
 }

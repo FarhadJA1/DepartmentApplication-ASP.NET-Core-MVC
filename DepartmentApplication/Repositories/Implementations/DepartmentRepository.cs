@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DepartmentApplication.Repositories.Implementations
 {
-    public class DepartmentRepository : IRepository<Department>
+    public class DepartmentRepository : IDepartmentRepository
     {
         private readonly AppDbContext _context;
         public DepartmentRepository(AppDbContext context)
@@ -32,6 +32,12 @@ namespace DepartmentApplication.Repositories.Implementations
         public async Task<Department> Get(int id)
         {
             Department department = await _context.Departments.FirstOrDefaultAsync(m => m.Id == id);
+
+            return department;
+        }
+        public async Task<Department> GetDepartmentWithStudents (int id)
+        {
+            Department department = await _context.Departments.Include(m=>m.Employees).FirstOrDefaultAsync(m => m.Id == id);
 
             return department;
         }

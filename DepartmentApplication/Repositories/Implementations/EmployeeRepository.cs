@@ -46,9 +46,9 @@ namespace DepartmentApplication.Repositories.Implementations
             return employees;
         }
 
-        public Task Update()
+        public async Task Update()
         {
-            throw new NotImplementedException();
+            await _context.SaveChangesAsync();
         }
     }
 }

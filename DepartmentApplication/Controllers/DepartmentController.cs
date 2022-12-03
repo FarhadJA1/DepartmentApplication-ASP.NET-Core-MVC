@@ -60,7 +60,11 @@ namespace DepartmentApplication.Controllers
             if (!ModelState.IsValid) return View(updateVM);
             await _departmentService.Update(updateVM);
             return RedirectToAction(nameof(Index));
-
+        }
+        public async Task<IActionResult> Detail(int id)
+        {
+            DepartmentGetVM departmentGetVM = await _departmentService.Details(id);
+            return View(departmentGetVM);
         }
 
     }

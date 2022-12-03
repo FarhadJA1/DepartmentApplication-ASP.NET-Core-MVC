@@ -32,7 +32,7 @@ namespace DepartmentApplication
         {
             services.AddControllersWithViews();
 
-            services.AddScoped<IRepository<Department>, DepartmentRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<IRepository<Employee>, EmployeeRepository>();
 
             services.AddScoped<IDepartmentService, DepartmentService>();

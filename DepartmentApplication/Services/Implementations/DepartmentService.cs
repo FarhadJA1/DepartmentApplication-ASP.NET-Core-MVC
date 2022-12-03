@@ -12,8 +12,8 @@ namespace DepartmentApplication.Services.Implementations
 {
     public class DepartmentService : IDepartmentService
     {
-        private readonly IRepository<Department> _departmentRepository;
-        public DepartmentService(IRepository<Department> departmentRepository)
+        private readonly IDepartmentRepository _departmentRepository;
+        public DepartmentService(IDepartmentRepository departmentRepository)
         {
             _departmentRepository = departmentRepository;
         }
@@ -55,5 +55,21 @@ namespace DepartmentApplication.Services.Implementations
             department.Address = departmentUpdateVM.Address;
             await _departmentRepository.Update();
         }
+
+        public async Task<DepartmentGetVM> Details(int id)
+        {
+            Department department = await _departmentRepository.GetDepartmentWithStudents(id);
+            DepartmentGetVM departmentGetVM = new DepartmentGetVM()
+            {
+                Name=department.Name,
+                Address=department.Address,
+                Employees=department.Employees
+            };
+            return departmentGetVM;
+        }
+
+     
+
+
     }
 }

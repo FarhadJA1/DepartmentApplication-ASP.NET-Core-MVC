@@ -59,16 +59,26 @@ namespace DepartmentApplication.Controllers
             ViewBag.departments = await CreateDepartmentSelectList();
             return View(departmentUpdateVM);
         }
-        /*[HttpPost]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(EmployeeUpdateVM updateVM)
-        {
-            if (!ModelState.IsValid) return View(updateVM);
-            await _departmentService.Update(updateVM);
+        {            
+            if (!ModelState.IsValid) {
+                ViewBag.departments = await CreateDepartmentSelectList();
+                Employee employee = await _employeeService.GetById(updateVM.Id);
+                updateVM.DepartmentName = employee.Department.Name;
+                return View(updateVM);
+            } 
+            await _employeeService.Update(updateVM);
 
             return RedirectToAction(nameof(Index));
 
-        }*/
+        }
+        public async Task<IActionResult> Detail(int id)
+        {
+            EmployeeGetVM employeeGetVM = await _employeeService.Details(id);
+            return View(employeeGetVM);
+        }
 
 
         private async Task<SelectList> CreateDepartmentSelectList()

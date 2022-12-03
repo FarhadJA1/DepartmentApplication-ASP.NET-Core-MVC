@@ -185,3 +185,5 @@ C:\Users\ASUS\Desktop\DepartmentApplication\DepartmentApplication\obj\Debug\netc
 C:\Users\ASUS\Desktop\DepartmentApplication\DepartmentApplication\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Create.cshtml.g.cs
 C:\Users\ASUS\Desktop\DepartmentApplication\DepartmentApplication\obj\Debug\netcoreapp3.1\Razor\Views\Department\Update.cshtml.g.cs
 C:\Users\ASUS\Desktop\DepartmentApplication\DepartmentApplication\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Update.cshtml.g.cs
+C:\Users\ASUS\Desktop\DepartmentApplication\DepartmentApplication\obj\Debug\netcoreapp3.1\Razor\Views\Department\Detail.cshtml.g.cs
+C:\Users\ASUS\Desktop\DepartmentApplication\DepartmentApplication\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Detail.cshtml.g.cs

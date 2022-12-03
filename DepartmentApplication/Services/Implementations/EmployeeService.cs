@@ -51,9 +51,22 @@ namespace DepartmentApplication.Services.Implementations
 
        
 
-        public Task Update()
+        public async Task Update(EmployeeUpdateVM employeeUpdateVM)
         {
-            throw new NotImplementedException();
+            Employee employee = await _employeeRepository.Get(employeeUpdateVM.Id);
+            employee.Fullname = employeeUpdateVM.Fullname;
+            employee.DepartmentId = employeeUpdateVM.DepartmentId;
+            await _employeeRepository.Update();
+        }
+        public async Task<EmployeeGetVM> Details(int id)
+        {
+            Employee employee = await _employeeRepository.Get(id);
+            EmployeeGetVM employeeGetVM = new EmployeeGetVM()
+            {
+                Fullname=employee.Fullname,
+                DepartmentName=employee.Department.Name
+            };
+            return employeeGetVM;
         }
     }
 }

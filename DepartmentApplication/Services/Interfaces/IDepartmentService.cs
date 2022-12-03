@@ -13,6 +13,7 @@ namespace DepartmentApplication.Services.Interfaces
         Task Create(DepartmentCreateVM departmentCreateVM);
         Task Update(DepartmentUpdateVM departmentUpdateVM);
         Task Delete(int id);
+        Task<DepartmentGetVM> Details(int id);
         Task<Department> GetById(int id);
     }
 }

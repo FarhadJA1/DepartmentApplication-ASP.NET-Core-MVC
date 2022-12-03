@@ -7,5 +7,7 @@ namespace DepartmentApplication.ViewModels.EmployeeVM
 {
     public class EmployeeGetVM
     {
+        public string Fullname { get; set; }
+        public string DepartmentName { get; set; }
     }
 }
