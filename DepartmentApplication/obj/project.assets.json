@@ -8482,11 +8482,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\DepartmentApplication\\DepartmentApplication\\DepartmentApplication.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\App\\DepartmentApplication-ASP.NET-Core-MVC\\DepartmentApplication\\DepartmentApplication.csproj",
       "projectName": "DepartmentApplication",
-      "projectPath": "C:\\Users\\ASUS\\Desktop\\DepartmentApplication\\DepartmentApplication\\DepartmentApplication.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Desktop\\App\\DepartmentApplication-ASP.NET-Core-MVC\\DepartmentApplication\\DepartmentApplication.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Desktop\\DepartmentApplication\\DepartmentApplication\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Desktop\\App\\DepartmentApplication-ASP.NET-Core-MVC\\DepartmentApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",

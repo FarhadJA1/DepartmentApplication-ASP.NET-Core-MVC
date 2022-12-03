@@ -1,5 +1,7 @@
 ﻿using DepartmentApplication.Models;
+using DepartmentApplication.Utilities.Pagination;
 using DepartmentApplication.ViewModels.EmployeeVM;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,8 @@ namespace DepartmentApplication.Services.Interfaces
         Task Delete(int id);
         Task<Employee> GetById(int id);
         Task<EmployeeGetVM> Details(int id);
+        Task<SelectList> CreateDepartmentSelectList();
+        Task<Paginator<Employee>> GetPaginatedData(int currentPage, int take);
 
     }
 }

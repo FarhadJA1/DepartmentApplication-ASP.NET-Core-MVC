@@ -13,5 +13,7 @@ namespace DepartmentApplication.Repositories.Interfaces
         Task Create(T enity);
         Task Update();
         Task Delete(T entity);
+        Task<int> GetPageCount(int take);
+        Task<List<T>> GetDatasByCondition(int currentPage,int take);
     }
 }

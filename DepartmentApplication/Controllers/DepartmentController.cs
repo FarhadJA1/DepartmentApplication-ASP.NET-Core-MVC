@@ -1,5 +1,6 @@
 ﻿using DepartmentApplication.Models;
 using DepartmentApplication.Services.Interfaces;
+using DepartmentApplication.Utilities.Pagination;
 using DepartmentApplication.ViewModels.DepartmentVM;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,11 +17,10 @@ namespace DepartmentApplication.Controllers
         {
             _departmentService = departmentService;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1, int take = 5)
         {
-            List<Department> departments = await _departmentService.GetAll();
-
-            return View(departments);
+            Paginator<Department> pagination = await _departmentService.GetPaginatedData(page, take); 
+            return View(pagination);
         }
         public IActionResult Create()
         {

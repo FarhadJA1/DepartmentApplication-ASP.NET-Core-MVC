@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NWlyPe66U4n2TcrCtSsQe5xvc6jjsizyrJ8MeJyxHGBVSGGiMtQmnJ5p0KfZBPncPGfFbSFYZ00xowyTxjb6Ng==",
+  "dgSpecHash": "3+Lzuh1Kk7NkKFeucgABMNyX+Wc1RtTreq71R6yM7WsKV2VcsWMlTWdqVjfTZ87LsVxT37sOmho362cOGnwJNg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\DepartmentApplication\\DepartmentApplication\\DepartmentApplication.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\App\\DepartmentApplication-ASP.NET-Core-MVC\\DepartmentApplication\\DepartmentApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

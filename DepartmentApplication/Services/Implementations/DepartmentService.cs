@@ -2,6 +2,7 @@
 using DepartmentApplication.Repositories.Implementations;
 using DepartmentApplication.Repositories.Interfaces;
 using DepartmentApplication.Services.Interfaces;
+using DepartmentApplication.Utilities.Pagination;
 using DepartmentApplication.ViewModels.DepartmentVM;
 using System;
 using System.Collections.Generic;
@@ -67,7 +68,13 @@ namespace DepartmentApplication.Services.Implementations
             };
             return departmentGetVM;
         }
-
+        public async Task<Paginator<Department>> GetPaginatedData(int currentPage,int take)
+        {
+            int pageCount = await _departmentRepository.GetPageCount(take);
+            List<Department> departments = await _departmentRepository.GetDatasByCondition(currentPage, take);
+            Paginator<Department> pagination = new Paginator<Department>(departments, currentPage, pageCount);
+            return pagination;
+        }
      
 
 

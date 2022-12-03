@@ -1,5 +1,6 @@
 ﻿using DepartmentApplication.Models;
 using DepartmentApplication.Services.Interfaces;
+using DepartmentApplication.Utilities.Pagination;
 using DepartmentApplication.ViewModels.EmployeeVM;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -19,15 +20,14 @@ namespace DepartmentApplication.Controllers
             _employeeService = employeeService;
             _departmentService = departmentService;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1, int take = 5)
         {
-            List<Employee> employees = await _employeeService.GetAll();
-            
-            return View(employees);
+            Paginator<Employee> pagination = await _employeeService.GetPaginatedData(page, take);
+            return View(pagination);
         }
         public async Task<IActionResult> Create()
         {
-            ViewBag.departments = await CreateDepartmentSelectList();
+            ViewBag.departments = await _employeeService.CreateDepartmentSelectList();
             return View();
         }
         [HttpPost]
@@ -56,7 +56,7 @@ namespace DepartmentApplication.Controllers
                 Fullname = employee.Fullname,
                 DepartmentName = employee.Department.Name
             };
-            ViewBag.departments = await CreateDepartmentSelectList();
+            ViewBag.departments = await _employeeService.CreateDepartmentSelectList();
             return View(departmentUpdateVM);
         }
         [HttpPost]
@@ -64,7 +64,7 @@ namespace DepartmentApplication.Controllers
         public async Task<IActionResult> Update(EmployeeUpdateVM updateVM)
         {            
             if (!ModelState.IsValid) {
-                ViewBag.departments = await CreateDepartmentSelectList();
+                ViewBag.departments = await _employeeService.CreateDepartmentSelectList();
                 Employee employee = await _employeeService.GetById(updateVM.Id);
                 updateVM.DepartmentName = employee.Department.Name;
                 return View(updateVM);
@@ -79,13 +79,5 @@ namespace DepartmentApplication.Controllers
             EmployeeGetVM employeeGetVM = await _employeeService.Details(id);
             return View(employeeGetVM);
         }
-
-
-        private async Task<SelectList> CreateDepartmentSelectList()
-        {
-            List<Department> departments = await _departmentService.GetAll();
-            return new SelectList(departments, "Id", "Name");
-        }
-
     }
 }

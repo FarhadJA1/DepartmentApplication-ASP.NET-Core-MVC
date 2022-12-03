@@ -1,4 +1,4 @@
-﻿@model List<Employee>
+﻿@model Paginator<Employee>
 @{
     ViewData["Title"] = "Index";
     int count = 1;
@@ -9,7 +9,7 @@
         <a asp-controller="Employee" asp-action="Create" class="btn btn-outline-primary">Create</a>
     </div>
     <div class="row">
-        @if (Model.Count > 0)
+        @if (Model.Datas.Count > 0)
         {
             <table class="table table-hover">
                 <thead>
@@ -21,30 +21,50 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var employee in Model)
+                    @foreach (var employee in Model.Datas)
                     {
-                    <tr>
-                        <th style="text-align:center">@count</th>
-                        <td style="text-align:center">@employee.Fullname</td>
-                        <td style="text-align:center">@employee.Department.Name</td>
-                        <td style="text-align:center">
-                            <a asp-action="Detail" asp-route-id="@employee.Id" class="btn btn-outline-info">
-                                <i class="mdi mdi-information-outline"></i>
-                            </a>
-                            <form style="display:inline-block" method="post"  asp-action="Delete" asp-route-id="@employee.Id">
-                                <button type="submit" class="btn btn-outline-danger">
-                                    <i class="mdi mdi-delete-forever"></i>
-                                </button>
-                            </form>
-                            <a asp-action="Update" asp-route-id="@employee.Id" class="btn btn-outline-warning">
-                                <i class="mdi mdi-marker"></i>
-                            </a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th style="text-align:center">@count</th>
+                            <td style="text-align:center">@employee.Fullname</td>
+                            <td style="text-align:center">@employee.Department.Name</td>
+                            <td style="text-align:center">
+                                <a asp-action="Detail" asp-route-id="@employee.Id" class="btn btn-outline-info">
+                                    <i class="mdi mdi-information-outline"></i>
+                                </a>
+                                <form style="display:inline-block" method="post" asp-action="Delete" asp-route-id="@employee.Id">
+                                    <button type="submit" class="btn btn-outline-danger">
+                                        <i class="mdi mdi-delete-forever"></i>
+                                    </button>
+                                </form>
+                                <a asp-action="Update" asp-route-id="@employee.Id" class="btn btn-outline-warning">
+                                    <i class="mdi mdi-marker"></i>
+                                </a>
+                            </td>
+                        </tr>
                         count++;
                     }
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center my-4">
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        <li class="page-item @(Model.HasPrev?"":"disabled")">
+                            <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage-1)">Previous</a>
+                        </li>
+                        @for (int i = 1; i <= Model.TotalPage; i++)
+                        {
+                            <li class="page-item @(i==Model.CurrentPage ? "disabled":"")">
+                                <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                            </li>
+                        }
+
+
+                        <li class="page-item @(Model.HasNext?"":"disabled")">
+                            <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage+1)">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         }
         else
         {
@@ -54,5 +74,6 @@
 
         }
     </div>
+    
 </div>
 

@@ -1,4 +1,5 @@
 ﻿using DepartmentApplication.Models;
+using DepartmentApplication.Utilities.Pagination;
 using DepartmentApplication.ViewModels.DepartmentVM;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,6 @@ namespace DepartmentApplication.Services.Interfaces
         Task Delete(int id);
         Task<DepartmentGetVM> Details(int id);
         Task<Department> GetById(int id);
+        Task<Paginator<Department>> GetPaginatedData(int currentPage, int take);
     }
 }

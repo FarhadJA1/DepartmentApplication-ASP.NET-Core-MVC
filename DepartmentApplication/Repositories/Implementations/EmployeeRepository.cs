@@ -50,5 +50,22 @@ namespace DepartmentApplication.Repositories.Implementations
         {
             await _context.SaveChangesAsync();
         }
+
+        public async Task<int> GetPageCount(int take)
+        {
+            int count = await _context.Employees.Where(m=>m.SoftDeleted==false).CountAsync();
+            return (int)Math.Ceiling((decimal)count / take);
+        }
+
+        public async Task<List<Employee>> GetDatasByCondition(int currentPage, int take)
+        {
+            List<Employee> employees = await _context.Employees
+                .Include(m=>m.Department)
+                .Skip((currentPage - 1) * take)
+                .Take(take)
+                .OrderByDescending(m => m.Id)
+                .ToListAsync();
+            return employees;
+        }
     }
 }
